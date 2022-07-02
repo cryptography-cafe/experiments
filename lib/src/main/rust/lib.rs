@@ -75,6 +75,17 @@ pub extern "system" fn Java_experiments_RustBackend_modPow(
                 let res = base.pow_mod(&exponent, &modulus).unwrap();
                 res.to_digits(Order::Msf)
             }
+            // rug's wrapper around mpz_powm_sec.
+            4 => {
+                use rug::{integer::Order, Integer};
+
+                let base = Integer::from_digits(&base, Order::Msf);
+                let exponent = Integer::from_digits(&exponent, Order::Msf);
+                let modulus = Integer::from_digits(&modulus, Order::Msf);
+
+                let res = base.secure_pow_mod(&exponent, &modulus);
+                res.to_digits(Order::Msf)
+            }
             _ => panic!("Invalid backend"),
         };
 

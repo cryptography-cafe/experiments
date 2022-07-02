@@ -31,4 +31,8 @@ public class ModPow {
     public static BigInteger rug(BigInteger base, BigInteger exponent, BigInteger modulus) {
         return rust(base, exponent, modulus, 3);
     }
+
+    public static BigInteger ct_rug(BigInteger base, BigInteger exponent, BigInteger modulus) {
+        return rust(base, exponent, modulus, 4);
+    }
 }

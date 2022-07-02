@@ -62,4 +62,9 @@ public class ModPowBench {
     public BigInteger rug() {
         return ModPow.rug(this.base, this.exponent, ModPowBench.modulus);
     }
+
+    @Benchmark
+    public BigInteger ct_rug() {
+        return ModPow.ct_rug(this.base, this.exponent, ModPowBench.modulus);
+    }
 }
