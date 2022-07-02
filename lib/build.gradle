@@ -1,9 +1,24 @@
 plugins {
     id 'java-library'
+    id 'me.champeau.jmh' version '0.6.6'
 }
 
 repositories {
     mavenCentral()
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+def launcher = javaToolchains.launcherFor {
+    languageVersion = JavaLanguageVersion.of(11)
+}
+
+jmh {
+    jvm = launcher.get().executablePath.asFile.absolutePath
 }
 
 dependencies {

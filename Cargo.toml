@@ -10,3 +10,11 @@ path = "lib/src/main/rust/lib.rs"
 crate-type = ["staticlib", "cdylib"]
 
 [dependencies]
+jni = "0.19.0"
+tracing = "0.1.35"
+
+malachite-base = "0.2.4"
+malachite-nz = "0.2.4"
+num-bigint = "0.4.3"
+num-bigint-dig = "0.8.1"
+rug = { version = "1.16.0", default-features = false, features = ["integer"] }
